@@ -1,19 +1,32 @@
+//CropDoctorScreen.js
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ImageBackground } from 'react-native';
 
 export default function CropDoctorScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Crop Doctor</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Crop Doctor</Text>
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.text}>Welcome to the Crop Doctor </Text>
+      </View>
+    </SafeAreaView>
   );
+
+
+
+
+
+
+
 
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#df5252ff',
+    backgroundColor: '#b4aaaaff',
   },
   header: {
     paddingVertical: 20,
@@ -26,7 +39,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#ffffffff',
+    color: '#fff',
     textAlign: 'center',
   },
   content: {
@@ -41,3 +54,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+
+
