@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useCallback, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, SafeAreaView, ImageBackground } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  useFocusEffect(
+    useCallback(() =>{
+      setEmail('');
+      setPassword('');
+    }, [])
+  );
+
   const handleLogin = () => {
     if (email === 'test@test.com' && password === '1234') {
+      Alert.alert('Login-Successful','Welcome to Krishi-Mitr');
       navigation.navigate('Home');
     } else {
-      Alert.alert('Invalid credentials');
+      Alert.alert('Invalid credentials','Try again');
     }
   };
 
@@ -90,7 +99,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#000000ff',
     borderRadius: 12,
-    backgroundColor: '#ffffffff',
+    backgroundColor: '#f0f0f0ff',
     marginVertical: 10,
     fontSize: 16,
     color: '#000',
