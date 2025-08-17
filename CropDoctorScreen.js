@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, SafeAreaView, ImageBackground } from 'react-nat
 export default function CropDoctorScreen() {
   return (
     <SafeAreaView style={styles.container}>
+      
       <View style={styles.header}>
         <Text style={styles.title}>Crop Doctor</Text>
       </View>
@@ -30,12 +31,12 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingVertical: 20,
-    paddingHorizontal: 15,
-    backgroundColor: '#06940bff',
+    paddingHorizontal: 20,
+    backgroundColor: '#2E7D32',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     alignItems: 'center',
-  },
+  }, 
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -53,7 +54,13 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
   },
-});
+}); 
+
+
+
+
+
+
 
 
 
