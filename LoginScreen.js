@@ -1,63 +1,60 @@
-import { useFocusEffect } from '@react-navigation/native';
-import React, { useCallback, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, SafeAreaView, ImageBackground } from 'react-native';
+import React from 'react';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  SafeAreaView, 
+  ScrollView, 
+  ImageBackground, 
+  Alert, 
+  TouchableOpacity 
+} from 'react-native';
+import MenuBar from '../components/menu/MenuBar';
 
-export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  useFocusEffect(
-    useCallback(() =>{
-      setEmail('');
-      setPassword('');
-    }, [])
-  );
-
-  const handleLogin = () => {
-    if (email === 'test@test.com' && password === '1234') {
-      Alert.alert('Login-Successful','Welcome to Krishi-Mitr');
-      navigation.navigate('Home');
-    } else {
-      Alert.alert('Invalid credentials','Try again');
-    }
+export default function HomeScreen({ navigation }) {
+  const handleLogout = () => {
+    Alert.alert(
+      "Logout",
+      "Do you really want to logout?",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Yes",
+          style: "destructive",
+          onPress: () => {
+            navigation.reset({
+              index: 0,
+              routes: [{ name: "Login" }],
+            });
+          },
+        },
+      ]
+    );
   };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ImageBackground
-        source={require('../assets/farm2.jpg')} // replace with your image path
+        source={require('../assets/farm2.jpg')}
         style={styles.background}
         resizeMode="cover"
       >
         <View style={styles.overlay}>
+          {/* Header */}
           <View style={styles.header}>
             <Text style={styles.title}>Krishi-Mitr</Text>
-            <Text style={styles.subtitle}>Smart Farming, Powered by AI</Text>
+            <Text style={styles.subtitle}>Your AI Partner in Every Crop Decision</Text>
           </View>
 
-          <View style={styles.form}>
-            <TextInput
-              placeholder="Email"
-              placeholderTextColor="#555"
-              style={styles.input}
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-              autoCapitalize="none"
-            />
-            <TextInput
-              placeholder="Password"
-              placeholderTextColor="#555"
-              style={styles.input}
-              secureTextEntry
-              value={password}
-              onChangeText={setPassword}
-            />
+          {/* Menu Bar */}
+          <ScrollView contentContainerStyle={styles.menuWrapper}>
+            <MenuBar navigation={navigation} />
+          </ScrollView>
 
-            <TouchableOpacity style={styles.button} onPress={handleLogin}>
-              <Text style={styles.buttonText}>Login</Text>
-            </TouchableOpacity>
-          </View>
+          {/* Logout Button at Bottom Right */}
+          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+            <Text style={styles.logoutText}>Logout</Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -70,61 +67,53 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0)', // semi-transparent overlay for readability
-    justifyContent: 'center',
-    paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0)', 
   },
   header: {
+    paddingHorizontal: 20,
+    paddingTop: 30,
+    paddingBottom: 20,
+    backgroundColor: '#4CAF50cc',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
     alignItems: 'center',
-    marginBottom: 30,
   },
   title: {
-    fontSize: 40,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#000000ff',
-    marginBottom: 5,
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: 6,
   },
   subtitle: {
-    fontSize: 20,
-    color: '#000000ff',
-    textAlign: 'center',
-  },
-  form: {
-    width: '100%',
-  },
-  input: {
-    width: '100%',
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    borderWidth: 1,
-    borderColor: '#000000ff',
-    borderRadius: 12,
-    backgroundColor: '#f0f0f0ff',
-    marginVertical: 10,
     fontSize: 16,
-    color: '#000',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
+    color: '#e0f2f1',
+    textAlign: 'center',
+    marginBottom: 10,
   },
-  button: {
-    backgroundColor: '#2e7d32',
-    paddingVertical: 15,
-    borderRadius: 12,
-    width: '100%',
+  menuWrapper: {
+    padding: 20,
+    flexGrow: 1,
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    elevation: 3,
   },
-  buttonText: {
-    color: '#000000ff',
-    fontWeight: 'bold',
-    fontSize: 18,
+  logoutButton: {
+    position: 'absolute',
+    bottom: 35,
+    right: 20,
+    backgroundColor: '#000000ff',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    elevation: 4, // shadow for Android
+  },
+  logoutText: {
+    fontSize: 14,
+    color: '#ff0000ff',
+    fontWeight: '600',
   },
 });
+
+
+
+          
