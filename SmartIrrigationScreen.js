@@ -31,7 +31,7 @@ export default function SmartIrrigationScreen() {
       header: {
         paddingVertical: 20,
         paddingHorizontal: 15,
-        backgroundColor: '#06940bff',
+        backgroundColor: '#0288D1',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
         alignItems: 'center',
@@ -54,7 +54,4 @@ export default function SmartIrrigationScreen() {
         textAlign: 'center',
       },
     });
-    
-    
-    
     
