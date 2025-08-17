@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
+import DiagnosisScreen from './screens/DiagnosisScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/profile/ProfileScreen';
@@ -29,8 +30,10 @@ export default function App() {
         <Stack.Screen name="YieldPredictor" component={YieldPredictorScreen} options={{headerShown:false}} />
         <Stack.Screen name="SoilTesterScreen" component={SoilTester} options={{headerShown:false}}/>
         <Stack.Screen name="WeatherAssistant" component={WeatherAssistantScreen} options={{headerShown:false}} />
+        <Stack.Screen name="DiagnosisScreen" component={DiagnosisScreen} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
 
