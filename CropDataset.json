@@ -1,0 +1,6 @@
+{
+  "wheat": { "yieldPerAcre": 2.5, "rainfallNeeded": 500, "fertilizerNeeded": 50 },
+  "rice": { "yieldPerAcre": 3.8, "rainfallNeeded": 1200, "fertilizerNeeded": 80 },
+  "maize": { "yieldPerAcre": 2.2, "rainfallNeeded": 600, "fertilizerNeeded": 40 },
+  "sugarcane": { "yieldPerAcre": 8.5, "rainfallNeeded": 1500, "fertilizerNeeded": 120 }
+}
