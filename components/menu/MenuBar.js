@@ -1,3 +1,4 @@
+//MenuBar.js
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
@@ -13,7 +14,12 @@ export default function MenuBar({ navigation }) {
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('YieldPredictor')}>
                 <Text style={styles.text}>Yield Predictor</Text>
             </TouchableOpacity>
-            
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SoilTesterScreen')}>
+                <Text style={styles.text}>Soil Tester</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('WeatherAssistant')}>
+                <Text style={styles.text}>Weather Assistant</Text>
+            </TouchableOpacity>
 
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
                 <Text style={styles.text}>Profile</Text>
@@ -22,7 +28,11 @@ export default function MenuBar({ navigation }) {
                 <Text style={styles.text}>Settings</Text>
             </TouchableOpacity>
 
-            
+
+
+
+
+
 
 
         </View>
