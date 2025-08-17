@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   header: {
     paddingVertical: 20,
     paddingHorizontal: 15,
-    backgroundColor: '#06940bff',
+    backgroundColor: '#546E7A',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     alignItems: 'center',
@@ -48,6 +48,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+
+
+
 
 
 
