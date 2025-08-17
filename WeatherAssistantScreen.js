@@ -51,7 +51,3 @@ const styles = StyleSheet.create({
 
 
 
-
-
-
-
